@@ -122,17 +122,20 @@ namespace PRoConEvents
         {
             WritePluginConsole("Level Restarted: Stopping voting system", "Work", 3);
             StopVotingPoll();
+            votingTimer.Dispose();
         }
         public void OnRoundOver(int winningTeamId)
         {
             WritePluginConsole("Round Over: Stopping voting system", "Work", 3);
             StopVotingPoll();
+            votingTimer.Dispose();
         }
 
         public void OnRunNextLevel()
         {
             WritePluginConsole("Running nextmap: Stopping voting system", "Work", 3);
             StopVotingPoll();
+            votingTimer.Dispose();
         }
 
         public void OnServerInfo(CServerInfo csiServerInfo)
@@ -644,6 +647,8 @@ namespace PRoConEvents
                     Thread.Sleep(250);
                     this.ExecuteCommand("procon.protected.send", "admin.say", "Changing map...", "all", speaker);
                     this.ExecuteCommand("procon.protected.send", "mapList.runNextRound");
+                    votingTimer.Stop();
+                    votingTimer.Dispose();
                     return;
                 }
                 else
