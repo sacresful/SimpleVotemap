@@ -1,3 +1,6 @@
+# Warning
+This plugin is not made for public servers.
+
 # Basic commands
 /map - takes 3 arguments - mapName, gameMode, numberOfRounds. Use variables from commands below. </br>
 /yes - confirms the vote - by default it requires 50% of the players to agree to the vote, to let it confirm. </br>
