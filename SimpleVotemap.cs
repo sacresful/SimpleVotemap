@@ -660,9 +660,9 @@ namespace PRoConEvents
                 this.ExecuteCommand("procon.protected.send", "mapList.restartRound");
                 return;
             }
-            else if (match.Success)
+            else if (match.Success) 
             {
-                this.ExecuteCommand("procon.protected.send", "admin.say", "There is vote currently in progress", "all", speaker);
+                this.ExecuteCommand("procon.protected.send", "admin.say", "You do not have enough privilages.", "all", speaker);
             }
 
             match = Regex.Match(message, @"^/changemap\s*(\S*)\s*(\S*)\s*(\S*)$", RegexOptions.IgnoreCase);
