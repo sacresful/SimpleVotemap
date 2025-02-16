@@ -753,7 +753,6 @@ namespace PRoConEvents
                 playerVotes.Clear();
                 m_players.ResetVotes();
                 votingTimer.Stop();
-                votingTimer.Dispose();
                 WritePluginConsole("^bVoting poll: Stopped", "Info", 3);
             }
             catch (Exception e)
