@@ -12,7 +12,7 @@ This plugin is not made for public servers.
 
 # How to install 
 1. Go to releases and download the zip.
-2. Extract the .cs file in (wherever u have procon installed)Procon\Plugins\BF4
+2. Extract the SimpleVotemap.cs file in (wherever u have procon installed)Procon\Plugins\BF4
 
 # How do i give MapFunctionPriviliges to user:
 1. Open procon, login into procon layer of the server.
