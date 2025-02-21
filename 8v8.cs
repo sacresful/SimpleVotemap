@@ -580,22 +580,11 @@ namespace PRoConEvents
                 this.ExecuteCommand("procon.protected.send", "mapList.clear");
                 this.ExecuteCommand("procon.protected.send", "mapList.add", internal_mapName, internal_gameMode, numberOfRounds.ToString());
                 this.ExecuteCommand("procon.protected.send", "admin.say", $"Changing map to: {mapName} {gameMode} {numberOfRounds}", "all", speaker);
-                if (internal_gameMode == "Domination0")
-                {
-                    this.ExecuteCommand("procon.protected.send", "vars.gameModeCounter", "67");
-                    this.ExecuteCommand("procon.protected.send", "vars.roundTimeLimit", "100");
-                }
-                else if (internal_gameMode == "Obliteration")
-                {
-                    this.ExecuteCommand("procon.protected.send", "vars.preset", "infantry");
-                    this.ExecuteCommand("procon.protected.send", "vars.roundTimeLimit", "75");
-                    this.ExecuteCommand("procon.protected.send", "vars.gameModeCounter", "100");
-                }
-                else
+                if (internal_gameMode == "ConquestSmall0")
                 {
                     this.ExecuteCommand("procon.protected.send", "vars.preset", "normal");
-                    this.ExecuteCommand("procon.protected.send", "vars.roundTimeLimit", "9999999");
-                    this.ExecuteCommand("procon.protected.send", "vars.gameModeCounter", "3000");
+                    this.ExecuteCommand("procon.protected.send", "vars.gameModeCounter", "67");
+                    this.ExecuteCommand("procon.protected.send", "vars.roundTimeLimit", "100");
                 }
                 this.ExecuteCommand("procon.protected.send", "mapList.runNextRound");
                 return;
