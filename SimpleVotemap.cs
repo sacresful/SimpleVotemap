@@ -505,7 +505,7 @@ namespace PRoConEvents
             CPrivileges cpPlayerPrivs = this.GetAccountPrivileges(speaker);
 
             Match match;
-            match = Regex.Match(message, @"^/maps\s*", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"maps\s*", RegexOptions.IgnoreCase);
             if (match.Success)
             {
                 WritePluginConsole(speaker + " requested list of maps", "Info", 3);
@@ -513,7 +513,7 @@ namespace PRoConEvents
                 return;
             }
 
-            match = Regex.Match(message, @"^/map\s*(\S*)\s*(\S*)\s*(\S*)$", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"map\s*(\S*)\s*(\S*)\s*(\S*)$", RegexOptions.IgnoreCase);
             if (match.Success && hasVotingStarted == false)
             {
                 string mapName = match.Groups[1].Value;
@@ -568,7 +568,7 @@ namespace PRoConEvents
                 this.ExecuteCommand("procon.protected.send", "admin.say", "There is vote currently in progress", "player", speaker);
             }
 
-            match = Regex.Match(message, @"^/gamemodes\s*", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"gamemodes\s*", RegexOptions.IgnoreCase);
             if (match.Success)
             {
                 WritePluginConsole(speaker + " has requested list of gamemodes", "Info", 3);
@@ -576,7 +576,7 @@ namespace PRoConEvents
                 return;
             }
 
-            match = Regex.Match(message, @"^/fullgamemodes\s*", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"fullgamemodes\s*", RegexOptions.IgnoreCase);
             if (match.Success)
             {
                 WritePluginConsole(speaker + " has requested list of full gamemodes", "Info", 3);
@@ -584,7 +584,7 @@ namespace PRoConEvents
                 return;
             }
 
-            match = Regex.Match(message, @"^/cancel\s*", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"cancel\s*", RegexOptions.IgnoreCase);
             if (match.Success && hasVotingStarted == true)
             {
                 WritePluginConsole(speaker + " has cancelled mapvote", "Info", 3);
@@ -598,7 +598,7 @@ namespace PRoConEvents
                 return;
             }
 
-            match = Regex.Match(message, @"^/yes\s*", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"yes\s*", RegexOptions.IgnoreCase);
             if (match.Success && hasVotingStarted == true)
             {
                 int vote = 1;
@@ -639,7 +639,7 @@ namespace PRoConEvents
                 this.ExecuteCommand("procon.protected.send", "admin.say", speaker + ": There is no vote currently in progress.", "player", speaker);
             }
 
-            match = Regex.Match(message, @"^/confirm\s*", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"confirm\s*", RegexOptions.IgnoreCase);
             if (match.Success && hasVotingStarted == true)
             {
                 if (playerVotes.Count >= CurrPlayerCount / 2)
@@ -657,7 +657,7 @@ namespace PRoConEvents
                 }
             }
 
-            match = Regex.Match(message, @"^/restart\s*", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"restart\s*", RegexOptions.IgnoreCase);
             if (match.Success && hasVotingStarted == true && cpPlayerPrivs.CanUseMapFunctions)
             {
                 StopVotingPoll();
@@ -669,8 +669,7 @@ namespace PRoConEvents
             {
                 this.ExecuteCommand("procon.protected.send", "admin.say", "You do not have enough privilages.", "all", speaker);
             }
-
-            match = Regex.Match(message, @"^/changemap\s*(\S*)\s*(\S*)\s*(\S*)$", RegexOptions.IgnoreCase);
+            match = Regex.Match(message, @"" + m_strHosVotePrefix + @"changemap\s*(\S*)\s*(\S*)\s*(\S*)$", RegexOptions.IgnoreCase);
             if (match.Success && cpPlayerPrivs.CanUseMapFunctions)
             {
                 string mapName = match.Groups[1].Value;
