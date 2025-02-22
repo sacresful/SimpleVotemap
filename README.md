@@ -22,7 +22,3 @@ This plugin is not made for public servers.
 5. Click on the account you just created.
 6. Set privilges on all server layers
 7. Find "Server state" section -> change current map functions.
-
-# 5v5 version
-
-Removed map vote, added specific settings for 5v5 gamemodes. Instanteous map change with /map
