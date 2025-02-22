@@ -443,8 +443,8 @@ namespace PRoConEvents
             { "OB", "Obliteration" },
             { "R", "RushLarge0" },
             { "SDM", "SquadDeathMatch0" },
-            { "TDM", "TeamDeathMatch0" }
-            //{ "SquadObliteration",        "OB" },
+            { "TDM", "TeamDeathMatch0" },
+            { "SOB", "SquadObliteration0" }
         };
         private void WritePluginConsole(string message, string tag, int level)
         {
@@ -585,7 +585,7 @@ namespace PRoConEvents
                     this.ExecuteCommand("procon.protected.send", "vars.gameModeCounter", "67");
                     this.ExecuteCommand("procon.protected.send", "vars.roundTimeLimit", "100");
                 }
-                else if (internal_gameMode == "Obliteration")
+                else if (internal_gameMode == "SquadObliteration0")
                 {
                     this.ExecuteCommand("procon.protected.send", "vars.preset", "infantry");
                     this.ExecuteCommand("procon.protected.send", "vars.roundTimeLimit", "75");
